@@ -1,0 +1,31 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>#</th>
+    <td mat-cell *matCellDef="let registration"> {{registration.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nimi</th>
+    <td mat-cell *matCellDef="let registration"> {{registration.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let registration"> {{registration.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="food">
+    <th mat-header-cell *matHeaderCellDef>Ruoka</th>
+    <td mat-cell *matCellDef="let registration"> {{registration.food}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="sauna">
+    <th mat-header-cell *matHeaderCellDef>Sauna</th>
+    <td mat-cell *matCellDef="let registration"> {{registration.sauna}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<button (click)="clear()">clear</button>

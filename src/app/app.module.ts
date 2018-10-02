@@ -5,6 +5,7 @@ import { MatTabsModule } from '@angular/material';
 import { MatTableModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -15,7 +16,7 @@ import { MsgboxComponent } from './msgbox/msgbox.component';
 
 const appRoutes: Routes = [
   { path: '', component: RegListComponent },
-  { path: 'new', component: RegFormComponent },
+  { path: 'new', component: RegFormComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }
 ]
 

@@ -6,6 +6,8 @@ import { MatTableModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -13,12 +15,13 @@ import { RegListComponent } from './reg-list/reg-list.component';
 import { RegFormComponent } from './reg-form/reg-form.component';
 import { LoginComponent } from './login/login.component';
 import { MsgboxComponent } from './msgbox/msgbox.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: RegListComponent },
   { path: 'new', component: RegFormComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }
-]
+];
 
 @NgModule({
   declarations: [
@@ -37,7 +40,11 @@ const appRoutes: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

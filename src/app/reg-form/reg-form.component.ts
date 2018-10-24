@@ -16,7 +16,7 @@ export class RegFormComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('regs') !== 'undefined') {
-      //this.regsArray = JSON.parse(localStorage.getItem('regs'));
+      // this.regsArray = JSON.parse(localStorage.getItem('regs'));
       this.regServ.setRegs(JSON.parse(localStorage.getItem('regs')));
     }
   }

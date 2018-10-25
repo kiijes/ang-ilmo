@@ -50,20 +50,9 @@ export class AuthService {
         }
       );
     });
-    /* .pipe(
-      tap(accounts => {
-        for (let i = 0; i < accounts.length; i++) {
-          console.log(accounts[i]);
-          if (username === accounts[i].username) {
-            console.log('username match');
-            if (password === accounts[i].password) {
-              console.log('password match');
-              this._isLoggedIn = true;
-            }
-          }
-          console.log('no match');
-        }
-      })
-    ); */
+  }
+
+  logout () {
+    this._isLoggedIn = false;
   }
 }

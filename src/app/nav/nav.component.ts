@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +9,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
   }

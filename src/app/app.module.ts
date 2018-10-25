@@ -16,11 +16,13 @@ import { RegFormComponent } from './reg-form/reg-form.component';
 import { LoginComponent } from './login/login.component';
 import { MsgboxComponent } from './msgbox/msgbox.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
 
 const appRoutes: Routes = [
   { path: '', component: RegListComponent },
   { path: 'new', component: RegFormComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent }
 ];
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     RegListComponent,
     RegFormComponent,
     LoginComponent,
-    MsgboxComponent
+    MsgboxComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

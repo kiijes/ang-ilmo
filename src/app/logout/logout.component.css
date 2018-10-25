@@ -1,0 +1,14 @@
+.form-group {
+    margin-bottom: 2vh;
+}
+
+label {
+    display: block;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,6 +1,6 @@
 <nav mat-tab-nav-bar>
   <a mat-tab-link routerLink="/">Ilmoittautuneet</a>
   <a mat-tab-link routerLink="/new">Ilmoittautumislomake</a>
-  <a *ngIf="!this.auth.isLoggedIn" mat-tab-link routerLink="/login">Kirjautuminen</a>
-  <a *ngIf="this.auth.isLoggedIn" mat-tab-link routerLink="/logout">Uloskirjautuminen</a>
+  <a *ngIf="!getLoginStatus()" mat-tab-link routerLink="/login">Kirjautuminen</a>
+  <a *ngIf="getLoginStatus()" mat-tab-link routerLink="/logout">Uloskirjautuminen</a>
 </nav>

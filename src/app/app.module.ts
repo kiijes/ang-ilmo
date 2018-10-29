@@ -14,9 +14,10 @@ import { NavComponent } from './nav/nav.component';
 import { RegListComponent } from './reg-list/reg-list.component';
 import { RegFormComponent } from './reg-form/reg-form.component';
 import { LoginComponent } from './login/login.component';
-import { MsgboxComponent } from './msgbox/msgbox.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', component: RegListComponent },
@@ -32,7 +33,6 @@ const appRoutes: Routes = [
     RegListComponent,
     RegFormComponent,
     LoginComponent,
-    MsgboxComponent,
     LogoutComponent
   ],
   imports: [
@@ -47,7 +47,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

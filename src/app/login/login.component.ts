@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { MessageService } from '../message.service';
 import { Account } from '../account';
 
 @Component({
@@ -11,14 +10,13 @@ import { Account } from '../account';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService, private msgServ: MessageService) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
 
   login (form: NgForm) {
-    console.log(form.value);
-    this.msgServ.add(`checking login with form values ${form.value.username}`);
+    // console.log(form.value);
     this.auth.checkLogin(form);
   }
 }

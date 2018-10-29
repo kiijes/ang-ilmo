@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Registration } from '../registration';
 import { NgForm } from '@angular/forms';
 import { RegisterService } from '../register.service';
-import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-reg-form',
@@ -11,8 +10,7 @@ import { MessageService } from '../message.service';
 })
 export class RegFormComponent implements OnInit {
   constructor(
-    private regServ: RegisterService,
-    private msgServ: MessageService) { }
+    private regServ: RegisterService) { }
 
   ngOnInit() {
     if (localStorage.getItem('regs') !== 'undefined') {
@@ -23,7 +21,7 @@ export class RegFormComponent implements OnInit {
 
   addReg(form: NgForm) {
     if (form.invalid) {
-      this.msgServ.add('Invalid form');
+      // console.log('invalid form');
       return;
     }
     this.regServ.pushReg(this.regServ.createReg(form));
